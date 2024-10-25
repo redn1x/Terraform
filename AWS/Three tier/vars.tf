@@ -18,31 +18,31 @@ variable "app_environment" {
 variable "app_stg_app" {
   type        = string
   description = "Application name"
-  default = "CONNECTEDMFG.COM"
+  default = "OKSY.COM"
 }
 
 variable "app_name_app" {
   type        = string
   description = "Application name"
-  default = "AUE1SWPSA01"
+  default = "APP1"
 }
 
 variable "app_name_db1" {
   type        = string
   description = "Application name"
-  default = "AUE1SWPDB01"
+  default = "DB01"
 }
 
 variable "app_name_db2" {
   type        = string
   description = "Application name"
-  default = "AUE1SWPDB02"
+  default = "DB02"
 }
 
 variable "lic_name" {
   type        = string
   description = "Application name"
-  default = "AUE1SWPLC01"
+  default = "LC1"
 }
 
 variable "aws_az" {
@@ -75,13 +75,13 @@ variable "public_subnet_cidr-2" {
 variable "vpc_name" {
   type        = string
   description = "vpc name"
-  default = "AUE1SWPVPC01"
+  default = "VPC01"
 }
 
 variable "customer_name" {
   type        = string
   description = "Customer name"
-  default = "Healthineers-Walpole"
+  default = "Oksy-Tech"
 }
 
 
@@ -196,5 +196,5 @@ variable "windows_root_volume_size_dbg" {
 variable "ec2_tag" {
   type        = string
   description = "Environment"
-  default = "migO0SDOZVJMB"
+  default = "Oksy"
 }
