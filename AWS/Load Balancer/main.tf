@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = var.vpc_name
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "public-subnet-1" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-1"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+     map = var.ec2_tag
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "public-subnet-2" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-2"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "gw" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-igw"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "public-rt" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-rt"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
   }
 }
 
@@ -211,9 +211,9 @@ resource "aws_instance" "windows-server-app1" {
   }
   
   tags = {
-    Name        = "AEW2SHTAP01.${var.app_name_app}"
+    Name        = "AP01.${var.app_name_app}"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
     Customer     = var.customer_name
   }
 }
@@ -247,10 +247,10 @@ resource "aws_instance" "windows-server-app2" {
   }
   
   tags = {
-    Name        = "AEW2SHTAP02.${var.app_name_app}"
+    Name        = "AP02.${var.app_name_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+    v = var.ec2_tag
   }
 }
 
@@ -319,9 +319,9 @@ resource  "aws_instance" "windows-server-db2"{
   }
   
   tags = {
-    Name        = "AEW2SHTDB02.${var.app_name_app}"
+    Name        = TDB02.${var.app_name_app}"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+     map = var.ec2_tag
     Customer     = var.customer_name
   }
 }
@@ -355,10 +355,10 @@ resource "aws_instance" "windows-server-int" {
   }
   
   tags = {
-    Name        = "AEW2SHTAPIN01.${var.app_name_app}"
+    Name        = "IN01.${var.app_name_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+   map= var.ec2_tag
   }
 }
 
@@ -470,10 +470,10 @@ resource "aws_instance" "windows-server-lic" {
 
   
   tags = {
-    Name        = "AEW2SHQLC01.${var.app_name_app}"
+    Name        = "LC01.${var.app_name_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+     map = var.ec2_tag
   }
 }
 
@@ -519,7 +519,7 @@ resource "aws_eip_association" "int" {
 
 #Create Application Load Balancer and Target Group
 resource "aws_lb" "alb" {
-  name               = "AEW2SHQVPC01ALB"
+  name               = "ALB"
   internal           = false
   load_balancer_type = "application"
   subnets            = [ aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id ]
@@ -529,7 +529,7 @@ resource "aws_lb" "alb" {
   ]
 
   tags = {
-    Name = "AEW2SHQVPC01ALB"
+    Name = "1ALB"
   }
 }
 
@@ -559,7 +559,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   tags = {
-    Name = "AEW2SHQVPC01ALBSG"
+    Name = "ALBSG"
   }
 }
 
