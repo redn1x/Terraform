@@ -86,15 +86,7 @@
 
 ## Execute terraform
 
-1. Input  access keys from AWS SSO [URL](https://seabrookglobal.awsapps.com/start/#/?tab=accounts)
-
- <p>
- 
-<img width="306" alt="2024-10-12_0-56-25" src="https://github.com/user-attachments/assets/b5ade166-57c6-4569-83c9-e0ffe26edb38">
-
-<br>
-<img width="418" alt="2024-10-12_0-56-25" src="https://github.com/user-attachments/assets/71a14f9b-2772-4fe1-a36b-d1cd262f1395">
-</p>
+1. Input  access keys from AWS SSO [URL](https://oksy.awsapps.com/start/#/?tab=accounts)
 
 2. Test programmatic access by doing this
    
