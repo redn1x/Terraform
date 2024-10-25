@@ -98,7 +98,7 @@
 3. Git clone repository:
 
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/testgit$ git clone git@github.com:Oksy-Technology-Group/Oksy.git
+   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/testgit$ git clone git@github.com:Oksy-Tech-Group/Oksy.git
    Cloning into 'Oksy'...
    remote: Enumerating objects: 57, done.
    remote: Counting objects: 100% (57/57), done.
@@ -124,7 +124,7 @@ terraform {
 5. Initialize s3 bucket
 
 ```
-terraform init -backend-config="bucket=stg-terraform-files"
+terraform init -backend-config="bucket=oksy-terraform-files"
 ```
 6. Execute apply using terraform command below:
 
