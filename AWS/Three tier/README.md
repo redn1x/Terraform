@@ -20,6 +20,7 @@
 
 ## Network Diagram
 
+![image](https://github.com/user-attachments/assets/841596df-62b6-46a0-8e63-6e5a1dde9495)
 
 
 
