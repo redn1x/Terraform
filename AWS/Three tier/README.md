@@ -62,7 +62,7 @@
 4. Check terraform version:  
 
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/Desktop/cert$ terraform version                            
+   User1@DESKTOP:/mnt/c/Users/Desktop/cert$ terraform version                            
     Terraform v1.3.9
     on linux_amd64
    ```
@@ -81,7 +81,7 @@
   
 3. Check aws cli version
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/cert$ aws --version
+   User1@DESKTOP:/mnt/c/Users/cert$ aws --version
    aws-cli/1.18.69 Python/3.6.9 Linux/4.4.0-19041-Microsoft botocore/1.16.19
    ```   
 
@@ -92,14 +92,14 @@
 2. Test programmatic access by doing this
    
      ```
-     francis@DESKTOP-9G1F39L:/mnt/c/Users/cert$ aws s3 ls
+     User1@DESKTOP:/mnt/c/Users/cert$ aws s3 ls
      2023-04-03 17:17:58 fls-storage
   
      ```
 3. Git clone repository:
 
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/testgit$ git clone git@github.com:Oksy-Tech-Group/Oksy.git
+   User1@DESKTOP:/mnt/c/Users/Desktop/testgit$ git clone git@github.com:Oksy-Tech-Group/Oksy.git
    Cloning into 'Oksy'...
    remote: Enumerating objects: 57, done.
    remote: Counting objects: 100% (57/57), done.
@@ -135,4 +135,4 @@ terraform init -backend-config="bucket=oksy-terraform-files"
    ```
    
    
-[🔼 Back to top](#oksy-stg)
+[🔼 Back to top](#oksy)
