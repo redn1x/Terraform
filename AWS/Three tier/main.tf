@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = var.vpc_name
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+   map  = var.ec2_tag
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "public-subnet-1" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-1"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "public-subnet-2" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-2"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "gw" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-igw"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "public-rt" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-rt"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
@@ -219,7 +219,7 @@ resource "aws_instance" "windows-server-app1" {
     Name        = "${var.app_name_app}.${var.app_stg_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
   }
 }
 
@@ -361,7 +361,7 @@ resource "aws_instance" "windows-server-db2" {
     Name        = "${var.app_name_db2}.${var.app_stg_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+    map = var.ec2_tag
   }
 }
 
@@ -401,7 +401,7 @@ resource "aws_instance" "windows-server-lic" {
     Name        = "${var.lic_name}.${var.app_stg_app}"
     Environment = var.app_environment
     Customer     = var.customer_name
-    map-migrated = var.ec2_tag
+    map  = var.ec2_tag
   }
 }
 
