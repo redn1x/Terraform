@@ -18,8 +18,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket         = "stg-terraform-files"
-    key            = "Healthineersv2/qa/terraform.tfstate"
+    bucket         = "oksy-terraform-files"
+    key            = "oksy/sandbox/terraform.tfstate"
     region         =  var.aws_region
     dynamodb_table = "terraform-lock-table"
   }
