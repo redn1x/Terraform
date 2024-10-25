@@ -12,38 +12,38 @@ variable "aws_region" {
 variable "app_environment" {
   type        = string
   description = "Environment"
-  default = "QA"
+  default = "sandbox"
 }
 variable "customer_name" {
   type        = string
   description = "customer name"
-  default = "Siemens Healthineers"
+  default = "Oksy-tech"
 }
 
 
 variable "app_name_app" {
   type        = string
   description = "Application name"
-  default = "CONNECTEDMFG.COM"
+  default = "Oksy.COM"
 }
 
-variable "app_stg_app" {
+variable "app_oksy_app" {
   type        = string
   description = "Application name"
-  default = "CONNECTEDMFG.COM"
+  default = "Oksy.COM"
 }
 
 
 variable "app_name_db" {
   type        = string
   description = "Application name"
-  default = "AEW2SHPDB01.CONNECTEDMFG.COM"
+  default = "DB01.CONNECTEDMFG.COM"
 }
 
 variable "app_name_lic" {
   type        = string
   description = "Application name"
-  default = "AEW2SHPLC01.CONNECTEDMFG.COM"
+  default = "LC01.CONNECTEDMFG.COM"
 }
 
 
@@ -76,14 +76,14 @@ variable "public_subnet_cidr-2" {
 variable "vpc_name" {
   type        = string
   description = "vpc name"
-  default = "AEW2SHQVPC01"
+  default = "VPC01"
 }
 
 
 variable "ec2_tag" {
   type        = string
   description = "Environment"
-  default = "migO0SDOZVJMB"
+  default = "oksy"
 }
 
 
