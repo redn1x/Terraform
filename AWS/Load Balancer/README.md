@@ -1,4 +1,4 @@
-# Healthineers-v2-Subdury terraform setup
+#  ALB terraform setup
 
 ## Overview 
 
@@ -21,7 +21,6 @@
 
 
 ## Network Diagram
-
 
 
 ## Prerequisite
@@ -62,7 +61,7 @@
 4. Check terraform version:  
 
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/abiomed/cert$ terraform version                            
+   user1@DESKTOPL:/mnt/c/Users/Desktop/cert$ terraform version                            
     Terraform v1.3.9
     on linux_amd64
    ```
@@ -81,12 +80,12 @@
   
 3. Check aws cli version
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/abiomed/cert$ aws --version
+    user1@DESKTOPL:/mnt/c/Users/Desktop/cert$ aws --version
    aws-cli/1.18.69 Python/3.6.9 Linux/4.4.0-19041-Microsoft botocore/1.16.19
    ```   
 4. Specify your AWS credentials:  
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/abiomed/cert$ aws configure --profile Elementbio
+    user1@DESKTOPL:/mnt/c/Users/Desktop/cert$ aws configure 
    AWS Access Key ID [None]: 
    AWS Secret Access Key [None]: 
    Default region name [None]: 
@@ -96,33 +95,22 @@
  5. Test programmatic access by doing this
    
      ```
-     francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/abiomed/cert$ aws s3 ls
-     2022-09-19 09:05:30 cepheid-proj2
-     2022-02-02 21:19:24 cf-templates-1a7mbab9wpz55-us-west-1
-     2022-07-27 21:37:14 database-backup-files1
-     2023-04-03 17:17:58 fls-storage
-     2023-03-31 05:41:11 francisstorage
-     2022-02-02 22:31:32 stgveeamuse2
-     2022-02-02 22:33:24 stgveeamusw1
-     2022-02-02 22:30:40 stgveeamusw2
+     user1@DESKTOPL:/mnt/c/Users/Desktop/cert$ aws s3 ls
+    
+     2023-03-31 05:41:11 oksystorage
+    
      ```
 ## Execute terraform
 
-1. Input  access keys from AWS SSO [URL](https://seabrookglobal.awsapps.com/start/#/?tab=accounts)
+1. Input  access keys from AWS SSO [URL](https://oksy.awsapps.com/start/#/?tab=accounts)
 
- <p>
- 
-<img width="306" alt="2024-10-12_0-56-25" src="https://github.com/user-attachments/assets/b5ade166-57c6-4569-83c9-e0ffe26edb38">
 
-<br>
-<img width="418" alt="2024-10-12_0-56-25" src="https://github.com/user-attachments/assets/71a14f9b-2772-4fe1-a36b-d1cd262f1395">
-</p>
    
 2. Git clone repository:
 
    ```
-   francis@DESKTOP-9G1F39L:/mnt/c/Users/ManuelFrancisDelgado/Desktop/testgit$ git clone git@github.com:Seabrook-Technology-Group/Axonics.git
-   Cloning into 'Axonics'...
+   user1@DESKTOPL:/mnt/c/Users/Desktop/testgit$ git clone git@github.com:Oksy-Tech-Group/Oksy.git
+   Cloning into 'Oksy'...
    remote: Enumerating objects: 57, done.
    remote: Counting objects: 100% (57/57), done.
    remote: Compressing objects: 100% (55/55), done.
@@ -136,8 +124,8 @@
 ```
 terraform {
  backend "s3" {
-    bucket         = "stg-terraform-files"
-    key            = "elementbio/<env>/terraform.tfstate"
+    bucket         = "oksy-terraform-files"
+    key            = "oksy/<env>/terraform.tfstate"
     region         = "us-west-1"
     dynamodb_table = "terraform-lock-table"
   }
@@ -147,7 +135,7 @@ terraform {
 4. Initialize s3 bucket
 
 ```
-terraform init -backend-config="bucket=stg-terraform-files"
+terraform init -backend-config="bucket=oksy-terraform-files"
 ```
 5. Execute apply using terraform command below:
 
@@ -157,4 +145,4 @@ terraform init -backend-config="bucket=stg-terraform-files"
    ```
    
    
-[🔼 Back to top](#sustaining-Elementbio-stg)
+[🔼 Back to top](#oksy-tech)
