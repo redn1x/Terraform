@@ -12,7 +12,7 @@ variable "aws_region" {
 variable "app_environment" {
   type        = string
   description = "Environment"
-  default = "Prod"
+  default = "Sandbox"
 }
 
 variable "app_stg_app" {
