@@ -218,8 +218,6 @@ resource "aws_instance" "windows-server-app1" {
    tags = {
     Name        = "${var.app_name_app}.${var.app_stg_app}"
     Environment = var.app_environment
-    Customer     = var.customer_name
-    map = var.ec2_tag
   }
 }
 
@@ -227,7 +225,7 @@ resource "aws_instance" "windows-server-app1" {
 
 
 
-# Create EC2 Instance - OLTP database
+# Create EC2 Instance - Transactional database
 
 resource "aws_instance" "windows-server-db1" {
   ami                         = "ami-016a78934c9cfa396"
@@ -290,8 +288,6 @@ resource "aws_instance" "windows-server-db1" {
   tags = {
     Name        = "${var.app_name_db1}.${var.app_stg_app}"
     Environment = var.app_environment
-    Customer     = var.customer_name
-    map-migrated = var.ec2_tag
   }
 }
 
@@ -360,8 +356,6 @@ resource "aws_instance" "windows-server-db2" {
   tags = {
     Name        = "${var.app_name_db2}.${var.app_stg_app}"
     Environment = var.app_environment
-    Customer     = var.customer_name
-    map = var.ec2_tag
   }
 }
 
@@ -400,8 +394,6 @@ resource "aws_instance" "windows-server-lic" {
   tags = {
     Name        = "${var.lic_name}.${var.app_stg_app}"
     Environment = var.app_environment
-    Customer     = var.customer_name
-    map  = var.ec2_tag
   }
 }
 
@@ -485,7 +477,7 @@ resource "aws_security_group" "aws-windows-sg" {
     to_port     = 443
     protocol    = "tcp"
    cidr_blocks =  ["10.220.100.96/27"]
-    description = "Allow incoming HTTPS-PROD connections"
+    description = "Allow incoming HTTPS connections"
 
   }
 
@@ -494,7 +486,7 @@ resource "aws_security_group" "aws-windows-sg" {
     to_port     = 4040
     protocol    = "tcp"
    cidr_blocks =  ["10.220.100.0/27"]
-    description = "Allow incoming HTTPS-DEV connections"
+    description = "Allow incoming HTTPS connections"
 
   }
 
@@ -512,7 +504,7 @@ resource "aws_security_group" "aws-windows-sg" {
     to_port     = 4040
     protocol    = "tcp"
    cidr_blocks =  ["10.220.100.32/27"]
-    description = "Allow incoming HTTPS-Mgmt connections"
+    description = "Allow incoming HTTPS connections"
 
   }
 
@@ -521,7 +513,7 @@ resource "aws_security_group" "aws-windows-sg" {
     to_port     = 4040
     protocol    = "tcp"
    cidr_blocks =  ["10.220.100.96/27"]
-    description = "Allow incoming HTTPS-PROD connections"
+    description = "Allow incoming HTTPS connections"
 
   }
 
@@ -530,7 +522,7 @@ resource "aws_security_group" "aws-windows-sg" {
     to_port     = 1433
     protocol    = "tcp"
    cidr_blocks =  ["10.220.100.64/27"]
-    description = "Allow incoming SQL-QA connections"
+    description = "Allow incoming SQL connections"
 
   }
 
