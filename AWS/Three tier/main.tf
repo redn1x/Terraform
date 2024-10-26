@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   tags = {
     Name = var.vpc_name
     Environment = var.app_environment
-   map  = var.ec2_tag
+
   }
 }
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "public-subnet-1" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-1"
     Environment = var.app_environment
-    map  = var.ec2_tag
+
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "public-subnet-2" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-2"
     Environment = var.app_environment
-    map  = var.ec2_tag
+
   }
 }
 
@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "gw" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-igw"
     Environment = var.app_environment
-    map  = var.ec2_tag
+  
   }
 }
 
@@ -59,7 +59,7 @@ resource "aws_route_table" "public-rt" {
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-rt"
     Environment = var.app_environment
-    map  = var.ec2_tag
+ 
   }
 }
 
@@ -140,15 +140,15 @@ Install-WindowsFeature -Name Telnet-Client;
 #### Firewall rules
 Enable-NetFirewallRule -DisplayName "World Wide Web Services (HTTP Traffic-In);
 Enable-NetFirewallRule -DisplayName "World Wide Web Services (HTTPS Traffic-In);
-New-NetFirewallRule -DisplayName "Camstar Auth to Active Directory" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 88;
-New-NetFirewallRule -DisplayName "Camstar LDAP Auth" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 389;
-New-NetFirewallRule -DisplayName "Camstar LDAP Auth-SSL" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 636;
-New-NetFirewallRule -DisplayName "Camstar Management Studio" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2882;
+New-NetFirewallRule -DisplayName "Oksytech Auth to Active Directory" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 88;
+New-NetFirewallRule -DisplayName "Oksytech LDAP Auth" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 389;
+New-NetFirewallRule -DisplayName "Oksytech  LDAP Auth-SSL" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 636;
+New-NetFirewallRule -DisplayName "Oksytech  Management Studio" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2882;
 New-NetFirewallRule -DisplayName "Microsoft Exchange Notification" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2883;
 New-NetFirewallRule -DisplayName "MS SQL Server 2019" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 1433;
 ####### For License Server
-New-NetFirewallRule -DisplayName "Siemens PLM License Server - Flexera - lmgrd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 28000;
-New-NetFirewallRule -DisplayName "Siemens PLM License Server - Licensing Component - ugslmd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 29000;
+New-NetFirewallRule -DisplayName "Oksytech  License Server - Flexera - lmgrd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 28000;
+New-NetFirewallRule -DisplayName "Oksytech  License Server - Licensing Component - ugslmd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 29000;
 
 # Restart machine
 shutdown -r -t 10;
