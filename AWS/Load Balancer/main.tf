@@ -9,8 +9,6 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
   tags = {
     Name = var.vpc_name
-    Environment = var.app_environment
-    map = var.ec2_tag
   }
 }
 
@@ -21,8 +19,7 @@ resource "aws_subnet" "public-subnet-1" {
   availability_zone = var.aws_az[0]
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-1"
-    Environment = var.app_environment
-     map = var.ec2_tag
+
   }
 }
 
@@ -33,8 +30,7 @@ resource "aws_subnet" "public-subnet-2" {
   availability_zone = var.aws_az[1]
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-2"
-    Environment = var.app_environment
-    map  = var.ec2_tag
+
   }
 }
 
@@ -44,8 +40,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.vpc.id
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-igw"
-    Environment = var.app_environment
-    map = var.ec2_tag
+
   }
 }
 
@@ -58,8 +53,7 @@ resource "aws_route_table" "public-rt" {
   }
   tags = {
     Name = "${lower(var.vpc_name)}-${lower(var.app_environment)}-public-subnet-rt"
-    Environment = var.app_environment
-    map = var.ec2_tag
+ 
   }
 }
 
@@ -283,10 +277,9 @@ resource "aws_instance" "windows-server-db1" {
   }
   
   tags = {
-    Name        = "AEW2SHTDB01.${var.app_name_app}"
+    Name        = "DB01.${var.app_name_app}"
     Environment = var.app_environment
-    map-migrated = var.ec2_tag
-    Customer     = var.customer_name
+
   }
 }
 
@@ -320,9 +313,8 @@ resource  "aws_instance" "windows-server-db2"{
   
   tags = {
     Name        = TDB02.${var.app_name_app}"
-    Environment = var.app_environment
-     map = var.ec2_tag
-    Customer     = var.customer_name
+
+
   }
 }
 
@@ -356,9 +348,7 @@ resource "aws_instance" "windows-server-int" {
   
   tags = {
     Name        = "IN01.${var.app_name_app}"
-    Environment = var.app_environment
-    Customer     = var.customer_name
-   map= var.ec2_tag
+
   }
 }
 
@@ -434,7 +424,7 @@ ingress {
 
   tags = {
     Name        = "${lower(var.vpc_name)}-${var.app_environment}-windows-sg"
-    Environment = var.app_environment
+
   }
 }
 
@@ -471,9 +461,7 @@ resource "aws_instance" "windows-server-lic" {
   
   tags = {
     Name        = "LC01.${var.app_name_app}"
-    Environment = var.app_environment
-    Customer     = var.customer_name
-     map = var.ec2_tag
+ 
   }
 }
 
@@ -529,7 +517,7 @@ resource "aws_lb" "alb" {
   ]
 
   tags = {
-    Name = "1ALB"
+    Name = "ALB"
   }
 }
 
