@@ -139,15 +139,15 @@ Install-WindowsFeature -Name Telnet-Client;
 #### Firewall rules
 Enable-NetFirewallRule -DisplayName "World Wide Web Services (HTTP Traffic-In);
 Enable-NetFirewallRule -DisplayName "World Wide Web Services (HTTPS Traffic-In);
-New-NetFirewallRule -DisplayName "Camstar Auth to Active Directory" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 88;
-New-NetFirewallRule -DisplayName "Camstar LDAP Auth" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 389;
-New-NetFirewallRule -DisplayName "Camstar LDAP Auth-SSL" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 636;
-New-NetFirewallRule -DisplayName "Camstar Management Studio" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2882;
+New-NetFirewallRule -DisplayName "oksy Auth to Active Directory" -Direction Inbound -Action Allow -Protocol UDP -LocalPort 88;
+New-NetFirewallRule -DisplayName "oksy LDAP Auth" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 389;
+New-NetFirewallRule -DisplayName "oksy LDAP Auth-SSL" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 636;
+New-NetFirewallRule -DisplayName "oksy   Studio" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2882;
 New-NetFirewallRule -DisplayName "Microsoft Exchange Notification" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 2883;
 New-NetFirewallRule -DisplayName "MS SQL Server 2019" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 1433;
 ####### For License Server
-New-NetFirewallRule -DisplayName "Siemens PLM License Server - Flexera - lmgrd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 28000;
-New-NetFirewallRule -DisplayName "Siemens PLM License Server - Licensing Component - ugslmd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 29000;
+New-NetFirewallRule -DisplayName "oksy License Server - Flexera - lmgrd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 28000;
+New-NetFirewallRule -DisplayName "oksy License Server - Licensing Component - ugslmd.exe" -Direction Inbound -Action Allow -Protocol tcp -LocalPort 29000;
 
 # Restart machine
 shutdown -r -t 10;
