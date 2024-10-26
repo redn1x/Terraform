@@ -18,7 +18,7 @@ variable "app_environment" {
 variable "app_stg_app" {
   type        = string
   description = "Application name"
-  default = "OKSY.COM"
+  default = "oksy.com"
 }
 
 variable "app_name_app" {
@@ -193,8 +193,3 @@ variable "windows_root_volume_size_dbg" {
 }
 
 
-variable "ec2_tag" {
-  type        = string
-  description = "Environment"
-  default = "Oksy"
-}
