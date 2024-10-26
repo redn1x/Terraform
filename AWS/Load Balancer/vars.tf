@@ -24,26 +24,26 @@ variable "customer_name" {
 variable "app_name_app" {
   type        = string
   description = "Application name"
-  default = "Oksy.COM"
+  default = "oksy.COM"
 }
 
 variable "app_oksy_app" {
   type        = string
   description = "Application name"
-  default = "Oksy.COM"
+  default = oksy.COM"
 }
 
 
 variable "app_name_db" {
   type        = string
   description = "Application name"
-  default = "DB01.CONNECTEDMFG.COM"
+  default = "DB01.oksy.COM"
 }
 
 variable "app_name_lic" {
   type        = string
   description = "Application name"
-  default = "LC01.CONNECTEDMFG.COM"
+  default = "LC01.oksy.COM"
 }
 
 
